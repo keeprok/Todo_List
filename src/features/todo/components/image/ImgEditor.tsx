@@ -7,8 +7,10 @@ import { IconButton } from '@/components/common/button/IconButton';
 import { useUploadImage } from '../../hooks/image/useUploadImage';
 
 const tenantId = process.env.NEXT_PUBLIC_TENANT_ID!;
-
-export const ImgEditor = () => {
+interface ImgEditorProps {
+  onUploadSuccess: (url: string) => void;
+}
+export const ImgEditor = ({ onUploadSuccess }: ImgEditorProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { mutate: uploadImage } = useUploadImage(tenantId);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -23,8 +25,8 @@ export const ImgEditor = () => {
 
     uploadImage(safeFile, {
       onSuccess: (url: string) => {
-        console.log('✅ 업로드된 이미지 URL:', url);
         setImageUrl(url);
+        onUploadSuccess(url);
       },
     });
   };
