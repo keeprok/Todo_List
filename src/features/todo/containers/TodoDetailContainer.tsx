@@ -14,7 +14,7 @@ export const TodoDetailContainer = () => {
 
   const { data } = useTodoDetail(tenantId, todoId);
 
-  if (!data) return console.log(1);
+  if (!data) return null;
 
   return (
     <div className="flex-col gap-[17px] sm:gap-6">
