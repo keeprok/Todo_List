@@ -1,0 +1,9 @@
+import { TodoDetailContainer } from '@/features/todo/containers/TodoDetailContainer';
+
+export default function DetailPage() {
+  return (
+    <div className="pt-4 sm:pt-6 px-4 sm:px-6 lg:px-[104px]">
+      <TodoDetailContainer />
+    </div>
+  );
+}
