@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-export const Header = () => {
+const Header = () => {
   const router = useRouter();
   return (
     <header className="w-full border-b-1 border-slate-200 bg-slate-200">
@@ -29,3 +29,4 @@ export const Header = () => {
     </header>
   );
 };
+export default Header;

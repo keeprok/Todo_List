@@ -7,10 +7,8 @@ import { IconButton } from '@/components/common/button/IconButton';
 import { useUploadImage } from '../../hooks/image/useUploadImage';
 
 const tenantId = process.env.NEXT_PUBLIC_TENANT_ID!;
-interface ImgEditorProps {
-  onUploadSuccess: (url: string) => void;
-}
-export const ImgEditor = ({ onUploadSuccess }: ImgEditorProps) => {
+
+export const ImgEditor = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { mutate: uploadImage } = useUploadImage(tenantId);
   const [imageUrl, setImageUrl] = useState<string | null>(null);
@@ -26,7 +24,6 @@ export const ImgEditor = ({ onUploadSuccess }: ImgEditorProps) => {
     uploadImage(safeFile, {
       onSuccess: (url: string) => {
         setImageUrl(url);
-        onUploadSuccess(url);
       },
     });
   };

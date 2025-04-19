@@ -1,11 +1,6 @@
 import Image from 'next/image';
 
-interface MemoEditorProps {
-  value: string;
-  onChange: (val: string) => void;
-}
-
-export const MemoEditor = ({ value, onChange }: MemoEditorProps) => {
+export const MemoEditor = () => {
   return (
     <div className="relative lg:w-[588px] sm:w-[696px] w-[343px] rounded-[24px] overflow-hidden h-[311px]">
       <div className="absolute inset-0 w-full h-full ">
@@ -16,8 +11,6 @@ export const MemoEditor = ({ value, onChange }: MemoEditorProps) => {
         <p className="text-center text-amber-800 font-extrabold">Memo</p>
         <div className="mt-4 flex  h-full w-full items-end justify-center">
           <textarea
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
             className=" w-full h-[229px]  font-bold text-slate-800 resize-none outline-none 
     whitespace-pre-wrap break-words text-center  overflow-y-scroll bg-transparent  leading-relaxed"
             placeholder="메모를 입력하세요"
