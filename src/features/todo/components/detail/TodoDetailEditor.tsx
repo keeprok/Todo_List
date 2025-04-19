@@ -47,6 +47,10 @@ export const TodoDetialEditer = ({ id, name, memo = '', imageUrl = '', isComplet
     }
   };
 
+  // 내부 useState 아래
+  const hasInitialContent = Boolean(memo || imageUrl);
+  const editLabel = hasInitialContent ? 'edit' : 'complete';
+
   return (
     <div className="flex flex-col gap-6 pt-[17px] sm:pt-6">
       <div className="flex flex-col gap-[17px] sm:gap-6 lg:flex-row">
@@ -54,7 +58,7 @@ export const TodoDetialEditer = ({ id, name, memo = '', imageUrl = '', isComplet
         <MemoEditor value={newMemo} onChange={setMemo} />
       </div>
       <div className="w-full justify-center lg:justify-end flex gap-[7px] sm:gap-4">
-        <ActionButton purpose="edit" onClick={handleEdit} />
+        <ActionButton purpose={editLabel} onClick={handleEdit} />
         <ActionButton purpose="delete" onClick={handleDelete} />
       </div>
     </div>

@@ -39,6 +39,3 @@ export const AddButton = ({ color }: AddButtonProps) => {
     </div>
   );
 };
-
-// 공용 컴포넌트 자세한 내용 수정
-// 추가히가 색상 구분 공용컴포넌트
