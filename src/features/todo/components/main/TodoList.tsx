@@ -3,8 +3,10 @@ import Image from 'next/image';
 import { TodoItem } from './TodoItem';
 import { useTodoList } from '../../hooks/useTodoItems';
 
+const tenantId = process.env.NEXT_PUBLIC_TENANT_ID!;
+
 export const TodoList = () => {
-  const { data, isLoading, isError } = useTodoList();
+  const { data, isLoading, isError } = useTodoList(tenantId);
 
   if (isLoading) return <div>로딩 중...</div>;
   if (isError) return <div>에러 발생</div>;

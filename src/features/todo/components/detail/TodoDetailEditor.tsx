@@ -1,6 +1,7 @@
 import { ActionButton } from '@/components/common/button/AcctionButton';
-import { ImgEditor } from './ImgEditor';
+
 import { MemoEditor } from './MemoEditor';
+import { ImgEditor } from '../image/ImgEditor';
 
 export const TodoDetialEditer = () => {
   return (

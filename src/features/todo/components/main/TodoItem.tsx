@@ -8,10 +8,9 @@ interface TodoItemProps {
   id: number;
   name: string;
   isCompleted: boolean;
-  onToggle: () => void;
 }
 
-export const TodoItem = ({ id, name, isCompleted, onToggle }: TodoItemProps) => {
+export const TodoItem = ({ id, name, isCompleted }: TodoItemProps) => {
   const router = useRouter();
   return (
     <div
@@ -21,7 +20,7 @@ export const TodoItem = ({ id, name, isCompleted, onToggle }: TodoItemProps) => 
       )}
     >
       <div className="flex gap-[16px]">
-        <button onClick={onToggle} className="cursor-pointer">
+        <button className="cursor-pointer">
           <CheckBoxIcon checked={isCompleted} />
         </button>
         <button onClick={() => router.push(`/detail/${id}`)} className=" cursor-pointer">

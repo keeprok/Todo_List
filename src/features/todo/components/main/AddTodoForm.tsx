@@ -6,7 +6,7 @@ import { AddButton } from '@/components/common/button/AddButton';
 
 export const AddTodoForm = () => {
   const [value, setValue] = useState('');
-  // TODO: title 추가
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('할 일 추가:', value);
