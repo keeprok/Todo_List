@@ -1,4 +1,4 @@
-import { colors } from '@/styles/Color';
+import { colors } from '@/styles/color';
 
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
