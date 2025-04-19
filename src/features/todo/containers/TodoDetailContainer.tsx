@@ -29,3 +29,5 @@ export const TodoDetailContainer = () => {
     </div>
   );
 };
+
+// 상세 페이지 뷰 전체를 담당

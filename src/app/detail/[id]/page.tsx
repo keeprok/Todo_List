@@ -7,3 +7,4 @@ export default function DetailPage() {
     </div>
   );
 }
+// 상세 페이지: 특정 todo 상세 조회 및 수정/삭제

@@ -8,3 +8,5 @@ const axiosInstance = axios.create({
 });
 
 export default axiosInstance;
+
+// 공통 axios 인스턴스 설정

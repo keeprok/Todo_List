@@ -8,3 +8,5 @@ export const ReactQueryProvider = ({ children }: { children: ReactNode }) => {
 
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
+
+// React Query query provider

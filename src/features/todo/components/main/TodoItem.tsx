@@ -49,3 +49,5 @@ export const TodoItem = ({ id, name, isCompleted }: TodoItemProps) => {
     </div>
   );
 };
+
+// 개별 todo 아이템 (클릭 시 상세로 이동)

@@ -28,3 +28,5 @@ export const MemoEditor = ({ value, onChange }: MemoEditorProps) => {
     </div>
   );
 };
+
+// 메모 입력 및 수정 영역

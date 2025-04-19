@@ -4,3 +4,5 @@ export const deleteTodo = async (tenantId: string, id: number) => {
   const { data } = await axiosInstance.delete(`/${tenantId}/items/${id}`);
   return data;
 };
+
+// todo 삭제 DELETE

@@ -30,3 +30,5 @@ const Header = () => {
   );
 };
 export default Header;
+
+// 반응형 헤더 컴포넌트 (로고 및 홈 이동)

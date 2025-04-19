@@ -6,8 +6,9 @@ export interface TodoItem {
   isCompleted: boolean;
 }
 
-export const getTodoList = async (): Promise<TodoItem[]> => {
-  const tenantId = process.env.NEXT_PUBLIC_TENANT_ID!;
+export const getTodoList = async (tenantId: string): Promise<TodoItem[]> => {
   const res = await axiosInstance.get(`/${tenantId}/items`);
   return res.data;
 };
+
+// 전체 todo 리스트 GET

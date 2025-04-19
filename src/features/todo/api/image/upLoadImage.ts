@@ -12,3 +12,5 @@ export const uploadImage = async (file: File, tenantId: string): Promise<string>
 
   return res.data.url;
 };
+
+// 이미지 업로드 POST

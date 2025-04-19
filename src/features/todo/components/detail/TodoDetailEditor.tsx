@@ -64,3 +64,5 @@ export const TodoDetialEditer = ({ id, name, memo = '', imageUrl = '', isComplet
     </div>
   );
 };
+
+// 이미지, 메모, 수정/삭제 액션 모음

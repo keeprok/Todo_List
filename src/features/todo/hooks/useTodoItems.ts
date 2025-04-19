@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { QUERY_KEYS } from '@/constants/querykey';
-import { getTodoList } from '../api/getTodoList';
+import { getTodoList } from '../api/getTodo/getTodoList';
 
 export const useTodoList = (tenantId: string) => {
   return useQuery({

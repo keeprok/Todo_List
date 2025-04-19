@@ -32,7 +32,7 @@ export const ImgEditor = ({ onUploadSuccess, initialUrl }: ImgEditorProps) => {
     uploadImage(safeFile, {
       onSuccess: (url: string) => {
         setImageUrl(url);
-        onUploadSuccess(url); // 부모에게 전달
+        onUploadSuccess(url);
       },
     });
   };
@@ -62,3 +62,5 @@ export const ImgEditor = ({ onUploadSuccess, initialUrl }: ImgEditorProps) => {
     </div>
   );
 };
+
+// 이미지 업로드 및 미리보기 처리

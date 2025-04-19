@@ -24,3 +24,5 @@ export const TodoDetailItem = ({ name, isCompleted, onToggle }: TodoDetailItemPr
     </div>
   );
 };
+
+// 상세 페이지 상단의 이름/체크 표시 영역

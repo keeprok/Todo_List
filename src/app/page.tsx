@@ -11,3 +11,4 @@ export default function TodoPage() {
     </main>
   );
 }
+// 메인 페이지: AddTodoForm 및 TodoList 렌더링 + todo (제목만으로)추가
