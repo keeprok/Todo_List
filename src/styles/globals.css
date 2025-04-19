@@ -1,7 +1,9 @@
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
+  --background: #f9fafb;
   --foreground: #171717;
   /* Slate 계열 */
   --color-slate-900: #0f172a;
@@ -29,24 +31,6 @@
   }
 }
 
-@font-face {
-  font-family: 'NanumSquare';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquare-Regular.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'NanumSquare';
-  font-style: normal;
-  font-weight: 700;
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquare-Bold.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'NanumSquare';
-  font-style: normal;
-  font-weight: 800;
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumSquare-ExtraBold.woff2') format('woff2');
-}
 body {
   background: var(--background);
   color: var(--foreground);
