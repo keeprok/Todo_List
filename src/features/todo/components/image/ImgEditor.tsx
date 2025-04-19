@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 
 import { IconButton } from '@/components/common/button/IconButton';
@@ -8,22 +8,31 @@ import { useUploadImage } from '../../hooks/image/useUploadImage';
 
 const tenantId = process.env.NEXT_PUBLIC_TENANT_ID!;
 
-export const ImgEditor = () => {
+interface ImgEditorProps {
+  onUploadSuccess: (url: string) => void;
+  initialUrl?: string;
+}
+
+export const ImgEditor = ({ onUploadSuccess, initialUrl }: ImgEditorProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { mutate: uploadImage } = useUploadImage(tenantId);
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(initialUrl ?? null);
+
+  useEffect(() => {
+    setImageUrl(initialUrl ?? null);
+  }, [initialUrl]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // 파일 이름 리네이밍 처리 (권장)
     const ext = file.name.split('.').pop();
     const safeFile = new File([file], `image-${Date.now()}.${ext}`, { type: file.type });
 
     uploadImage(safeFile, {
       onSuccess: (url: string) => {
         setImageUrl(url);
+        onUploadSuccess(url); // 부모에게 전달
       },
     });
   };

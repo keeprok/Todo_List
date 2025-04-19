@@ -1,21 +1,31 @@
 'use client';
 
-import { TodoDetialEditer } from '../components/detail/TodoDetailEditor';
+import { useParams } from 'next/navigation';
+
 import { TodoDetailItem } from '../components/detail/TodoDetailItem';
+import { TodoDetialEditer } from '../components/detail/TodoDetailEditor';
+import { useTodoDetail } from '../hooks/useTodoDetail';
+
+const tenantId = process.env.NEXT_PUBLIC_TENANT_ID!;
 
 export const TodoDetailContainer = () => {
-  const data = { id: 3, name: '1string', isCompleted: false, onToggle: () => console.log(1) };
+  const { id } = useParams();
+  const todoId = Number(id);
+
+  const { data } = useTodoDetail(tenantId, todoId);
+
+  if (!data) return console.log(1);
 
   return (
-    <div className=" flex-col gap-[17px] sm:gap-6">
-      <TodoDetailItem
-        key={data.id}
+    <div className="flex-col gap-[17px] sm:gap-6">
+      <TodoDetailItem id={data.id} name={data.name} isCompleted={data.isCompleted} onToggle={() => {}} />
+      <TodoDetialEditer
         id={data.id}
         name={data.name}
+        memo={data.memo}
+        imageUrl={data.imageUrl}
         isCompleted={data.isCompleted}
-        onToggle={data.onToggle}
       />
-      <TodoDetialEditer />
     </div>
   );
 };
