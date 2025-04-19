@@ -1,16 +1,13 @@
 import axiosInstance from '@/lib/axiosInstance';
 
-export const patchTodo = async ({
-  id,
-  isCompleted,
-  tenantId,
-}: {
-  id: number;
+interface patchTodoprops {
+  name: string;
+  memo?: string;
+  imageUrl?: string;
   isCompleted: boolean;
-  tenantId: string;
-}) => {
-  const res = await axiosInstance.patch(`/api/${tenantId}/items/${id}`, {
-    isCompleted,
-  });
+}
+
+export const patchTodo = async (tenantId: string, id: number, data: patchTodoprops) => {
+  const res = await axiosInstance.patch(`/${tenantId}/items/${id}`, data);
   return res.data;
 };
