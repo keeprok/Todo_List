@@ -1,4 +1,4 @@
-import Header from '@/components/layout/Header';
+import Header from '@/components/layout/header';
 import { ReactQueryProvider } from '@/providers/react-query-provider';
 import '@/styles/globals.css';
 
