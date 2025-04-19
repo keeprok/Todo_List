@@ -1,12 +1,11 @@
-import { colors } from '@/styles/color';
-import { fontFamily } from '@/styles/fonts';
+import { colors } from '@/styles/Color';
 
 module.exports = {
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors,
-      fontFamily,
+      fontFamily: { sans: ['NanumSquare', 'sans-serif'] },
     },
   },
   plugins: [],
