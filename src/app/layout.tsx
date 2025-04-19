@@ -1,4 +1,5 @@
 import { Header } from '@/components/layout/Header';
+import { ReactQueryProvider } from '@/providers/react-query-provider';
 import '@/styles/globals.css';
 
 export default function RootLayout({
@@ -9,8 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-50 min-h-screen">
-        <Header /> {/* 모든 페이지 공통 헤더 */}
-        {children}
+        <ReactQueryProvider>
+          <Header />
+          {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );
