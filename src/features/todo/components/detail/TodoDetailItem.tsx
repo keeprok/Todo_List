@@ -14,7 +14,7 @@ export const TodoDetailItem = ({ name, isCompleted, onToggle, onChangeName }: To
   return (
     <div
       className={cn(
-        'w-full h-[64px] rounded-[27px] border-2 flex justify-center items-center',
+        'w-full h-[64px] rounded-[27px] border-2 flex justify-center items-center gap-4',
         isCompleted ? 'bg-violet-100 ' : 'bg-white '
       )}
     >
