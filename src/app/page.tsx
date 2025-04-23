@@ -3,11 +3,9 @@ import { TodoList } from '@/features/todo/components/main/TodoList';
 
 export default function TodoPage() {
   return (
-    <main className="  max-w-[1200px] mx-auto pt-6 flex justify-center ">
-      <div className="flex flex-col gap-10 w-full">
-        <AddTodoForm />
-        <TodoList />
-      </div>
+    <main className="max-w-[1200px] px-4 sm:px-6 lg:mx-auto pt-6 flex justify-center  flex-col gap-10">
+      <AddTodoForm />
+      <TodoList />
     </main>
   );
 }
