@@ -38,22 +38,21 @@ export const AddTodoForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full overflow-hidden flex gap-4">
-      <div className="relative w-full overflow-hidden h-[56px] bg-transparent">
-        <Image src="/img/search.png" alt="addTodo 배경" fill className="object-cover" priority />
-        <div className="absolute inset-0 flex flex-col items-center px-22 gap-4">
-          <input
-            type="text"
-            name="todo"
-            placeholder="할 일을 입력해주세요"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-            className="w-full h-[56px] px-6 text-slate-900 placeholder:text-slate-500 whitespace-nowrap overflow-x-auto outline-none"
-          />
-        </div>
+    <form onSubmit={handleSubmit} className="w-full  flex  sm:flex gap-4  h-14">
+      <div className="relative w-full h-full  min-w-0">
+        <Image src="/img/search.png" alt="addTodo 배경" fill sizes="100vw " className="object-cover" priority />
+
+        <input
+          type="text"
+          name="todo"
+          placeholder="할 일을 입력해주세요"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          className="absolute inset-0 w-full h-full px-6 bg-transparent text-slate-900 placeholder:text-slate-500 outline-none"
+        />
       </div>
 
-      <AddButton type="submit" disabled={!value.trim()} />
+      <AddButton type="submit" disabled={!value.trim()} color={value.trim() ? 'violet' : 'slate'} />
     </form>
   );
 };

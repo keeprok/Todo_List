@@ -57,7 +57,7 @@ export const ImgEditor = ({ onUploadSuccess, initialUrl }: ImgEditorProps) => {
       <input ref={inputRef} type="file" accept="image/*" onChange={onChange} className="hidden" />
 
       <div className="absolute bottom-4 right-4">
-        <IconButton icon={imageUrl ? 'plus' : 'pen'} onClick={() => inputRef.current?.click()} />
+        <IconButton icon={imageUrl ? 'pen' : 'plus'} onClick={() => inputRef.current?.click()} />
       </div>
     </div>
   );

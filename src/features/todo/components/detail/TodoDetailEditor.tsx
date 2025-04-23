@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ActionButton } from '@/components/common/button/AcctionButton';
+
 import { ImgEditor } from '../image/ImgEditor';
 import { MemoEditor } from './MemoEditor';
 import { usePatchTodo } from '../../hooks/usePatchTodo';
 import { useDeleteTodo } from '../../hooks/useDeleteTodo';
+import { ActionButton } from '@/components/common/button/AcctionButton';
+import { useQueryClient } from '@tanstack/react-query';
 
 const tenantId = process.env.NEXT_PUBLIC_TENANT_ID!;
 
@@ -22,15 +24,23 @@ export const TodoDetialEditer = ({ id, name, memo = '', imageUrl = '', isComplet
   const [newMemo, setMemo] = useState(memo);
   const [newImage, setImage] = useState<string | undefined>(imageUrl);
 
+  const queryClient = useQueryClient();
+
   const router = useRouter();
   const { mutate: patch } = usePatchTodo(tenantId, id);
   const { mutate: deleteTodo } = useDeleteTodo(tenantId, id);
 
+  useEffect(() => {
+    setMemo(memo ?? '');
+    setImage(imageUrl);
+  }, [memo, imageUrl]);
+
   const handleEdit = () => {
     patch(
-      { name, memo: newMemo, imageUrl: newImage, isCompleted },
+      { name, memo: newMemo ?? '', imageUrl: newImage ?? '', isCompleted },
       {
         onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ['todo', id] });
           router.push('/');
         },
       }
@@ -47,13 +57,13 @@ export const TodoDetialEditer = ({ id, name, memo = '', imageUrl = '', isComplet
     }
   };
 
-  // 내부 useState 아래
-  const hasInitialContent = Boolean(memo || imageUrl);
-  const editLabel = hasInitialContent ? 'edit' : 'complete';
-
+  const isMemoChanged = (newMemo ?? '') !== (memo ?? '');
+  const isImageChanged = (newImage ?? '') !== (imageUrl ?? '');
+  const hasEditedContent = isMemoChanged || isImageChanged;
+  const editLabel = hasEditedContent ? 'complete' : 'edit';
   return (
     <div className="flex flex-col gap-6 pt-[17px] sm:pt-6">
-      <div className="flex flex-col gap-[17px] sm:gap-6 lg:flex-row">
+      <div className="flex flex-col gap-[17px] sm:gap-6 lg:flex-row items-center">
         <ImgEditor onUploadSuccess={setImage} initialUrl={newImage} />
         <MemoEditor value={newMemo} onChange={setMemo} />
       </div>

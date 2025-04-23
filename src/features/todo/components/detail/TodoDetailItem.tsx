@@ -7,9 +7,10 @@ interface TodoDetailItemProps {
   name: string;
   isCompleted: boolean;
   onToggle: () => void;
+  onChangeName: (val: string) => void;
 }
 
-export const TodoDetailItem = ({ name, isCompleted, onToggle }: TodoDetailItemProps) => {
+export const TodoDetailItem = ({ name, isCompleted, onToggle, onChangeName }: TodoDetailItemProps) => {
   return (
     <div
       className={cn(
@@ -19,8 +20,13 @@ export const TodoDetailItem = ({ name, isCompleted, onToggle }: TodoDetailItemPr
     >
       <button onClick={onToggle} className="cursor-pointer flex gap-4">
         <CheckBoxIcon checked={isCompleted} />
-        <span className="text-slate-900 underline text-xl font-bold">{name}</span>
       </button>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => onChangeName(e.target.value)}
+        className="text-slate-900 underline text-xl font-bold bg-transparent outline-none"
+      />
     </div>
   );
 };
