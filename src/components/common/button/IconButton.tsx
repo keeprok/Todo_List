@@ -15,7 +15,7 @@ export const IconButton = ({ icon, onClick }: IconButtonProps) => {
 
   const variant = icon === 'plus' ? 'light' : 'dark';
 
-  const base = 'rounded-full flex items-center justify-center w-16 h-16 ';
+  const base = 'rounded-full flex items-center justify-center w-16 h-16 cursor-pointer';
   const variants = {
     light: 'bg-slate-200  ',
     dark: 'bg-slate-900/50 border-2 border-slate-900',

@@ -1,16 +1,30 @@
 import * as React from 'react';
 // plus 아이콘
 type PlusIconProps = {
-  color: 'gray' | 'white';
+  color: 'gray' | 'white' | 'black';
 };
 
 export const PlusIcon = ({ color }: PlusIconProps) => {
-  return color && 'gray' ? (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 8L14 8" stroke="white" strokeWidth="2" strokeLinecap="round" />
-      <path d="M8 14L8 2" stroke="white" strokeWidth="2" strokeLinecap="round" />
-    </svg>
-  ) : (
+  if (color === 'white') {
+    return (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 8L14 8" stroke="white" strokeWidth="2" strokeLinecap="round" />
+        <path d="M8 14L8 2" stroke="white" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (color === 'black') {
+    return (
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 8L14 8" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
+        <path d="M8 14L8 2" stroke="#0F172A" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  // gray
+  return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M3 12L21 12" stroke="#64748B" strokeWidth="3" strokeLinecap="round" />
       <path d="M12 21L12 3" stroke="#64748B" strokeWidth="3" strokeLinecap="round" />
